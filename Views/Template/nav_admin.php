@@ -1,19 +1,22 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <?php  $time = date("H:i:s");?>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?= media();?>/images/avatar.png" alt="User Image">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?= media();?>/images/<?php echo $_SESSION['idUser']?>.png?time=<?php echo $time ?>" alt="User Image">
         <div>
           <p class="app-sidebar__user-name"><?= $_SESSION['userData']['nombres']; ?></p>
           <p class="app-sidebar__user-designation"><?= $_SESSION['userData']['nombrerol']; ?></p>
         </div>
       </div>
       <ul class="app-menu">
-        <li>
+      <?php if(strcmp($_SESSION['userData']['idrol'],1)==0){ ?>
+      <li>
             <a class="app-menu__item" href="<?= base_url(); ?>" target="_blank">
                 <i class="app-menu__icon fa fas fa-globe" aria-hidden="true"></i>
                 <span class="app-menu__label">Ver sitio web</span>
             </a>
         </li>
+        <?php } ?>
         <?php if(!empty($_SESSION['permisos'][1]['r'])){ ?>
         <li>
             <a class="app-menu__item" href="<?= base_url(); ?>/dashboard">

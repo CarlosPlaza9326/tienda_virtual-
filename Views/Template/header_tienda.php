@@ -21,6 +21,31 @@
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
 }
+
+.login-form2 {
+	width: 80%;
+    position: absolute;
+    z-index: 1200;
+    display: block !important;
+    padding: 22px 30px 25px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: 5px 10px 16px rgb(51 51 51 / 5%), -5px 10px 16px rgb(51 51 51 / 5%);
+    -moz-box-shadow: 5px 10px 16px rgba(51,51,51,0.05),-5px 10px 16px rgba(51,51,51,0.05);
+    box-shadow: 5px 10px 16px rgb(51 51 51 / 5%), -5px 10px 16px rgb(51 51 51 / 5%);
+    background-color: #fff;
+    margin: 0;
+    border: none;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+	left:50%;
+}
+
+
 </style>
 <?php 
 	$cantCarrito = 0;
@@ -199,7 +224,7 @@
 										<button type="submit" class="btn btn-primary" style="background-color:#717fe0"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</button>
 									</div>
 								</form>
-							<div>
+						</div>
 						<?php } ?>
 					</div>
 				</div>
@@ -297,26 +322,48 @@
 				</li>
 
 				<li>
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04" data-toggle="modal" data-target="#modalAyuda">
-							
+
+					<div class="right-top-bar flex-w">
+					<?php 
+							if(isset($_SESSION['login'])){
+						?>	
+						<a href="<?= base_url() ?>/historial" class="flex-c-m trans-04 p-lr-25" data-toggle="modal" data-target="#modalAyuda" >
+							Historial
 						</a>
 						<?php 
-							if(isset($_SESSION['login'])){
-						?>
-						<a href="<?= base_url() ?>/dashboard" class="flex-c-m trans-04 p-lr-25">
-							Mi cuenta
-						</a>
-						<?php } 
+							}
 							if(isset($_SESSION['login'])){
 						?>
 						<a href="<?= base_url() ?>/logout" class="flex-c-m trans-04 p-lr-25">
 							Salir
 						</a>
 						<?php }else{ ?>
-						<a href="<?= base_url() ?>/login" class="flex-c-m trans-04 p-lr-25">
+							<div class="login-box" id="mydiv2" >
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Iniciar Sesión
 						</a>
+							
+								<form class="login-form2" name="formLogin" id="formLogin2" action="" style="visibility: hidden; opacity: 0;">
+									
+									<div class="form-group">
+										<label class="control-label">USUARIO</label>
+										<input id="txtEmail2" name="txtEmail" class="form-control" type="email" placeholder="Email" autofocus>
+									</div>
+									<div class="form-group">
+										<label class="control-label">CONTRASEÑA</label>
+										<input id="txtPassword2" name="txtPassword" class="form-control" type="password" placeholder="Contraseña">
+									</div>
+									<div class="form-group">
+										<div class="utility">
+										<p class="semibold-text mb-2"><a href="#" data-toggle="flip">¿Olvidaste tu contraseña?</a></p>
+										</div>
+									</div>
+									<div id="alertLogin" class="text-center"></div>
+									<div class="form-group btn-container">
+										<button type="submit" class="btn btn-primary" style="background-color:#717fe0"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</button>
+									</div>
+								</form>
+							<div>
 						<?php } ?>
 					</div>
 				</li>
@@ -340,7 +387,7 @@
 				</li>
 
 				<li>
-					<a href="<?= base_url(); ?>/sucursales">Como Comprar</a>
+					<a href="<?= base_url(); ?>/sucursales">Sucursales</a>
 				</li>
 
 				<li>
@@ -408,4 +455,32 @@ var bandera= false;
 					$('#mydiv .login-form').css({"visibility":"hidden", "opacity":"0"});
 				}
 			});
+			
+////////////////////////////////////////////////////////////////////////////
+			$('#txtEmail2, #txtPassword2').focusin(function() {
+				bandera=true;
+			});
+
+			$('#txtEmail2, #txtPassword2').focusout(function() {
+				bandera=false;
+			});
+			
+			$('#txtEmail2, #txtPassword2').change(function() {
+				bandera=false;
+			})
+
+			$("#mydiv2").mouseenter(function() {
+				$('#mydiv2 .login-form2').css({"visibility":"visible", "opacity":"1"})
+			});
+
+			$("#mydiv2").mouseleave(function() {
+				if(!bandera){
+					$('#mydiv2 .login-form2').css({"visibility":"hidden", "opacity":"0"});
+				}
+			});
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 	</script>

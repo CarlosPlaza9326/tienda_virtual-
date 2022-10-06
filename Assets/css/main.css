@@ -11440,7 +11440,7 @@ fieldset[disabled] .datepicker table tr td.selected.highlighted.focus {
 .datepicker table tr td.active.highlighted:hover {
   color: #ffffff;
   background-color: #009688;
-  border-color: #1704651;
+  border-color: #007d71;
 }
 
 .datepicker table tr td.active:active,
@@ -11451,7 +11451,7 @@ fieldset[disabled] .datepicker table tr td.selected.highlighted.focus {
 .open > .dropdown-toggle.datepicker table tr td.active.highlighted {
   color: #ffffff;
   background-color: #009688;
-  border-color: #1704651;
+  border-color: #007d71;
 }
 
 .datepicker table tr td.active:active:hover,
@@ -11473,7 +11473,7 @@ fieldset[disabled] .datepicker table tr td.selected.highlighted.focus {
 .open > .dropdown-toggle.datepicker table tr td.active.focus,
 .open > .dropdown-toggle.datepicker table tr td.active.highlighted.focus {
   color: #ffffff;
-  background-color: #1704651;
+  background-color: #007d71;
   border-color: #193c5a;
 }
 
@@ -11559,7 +11559,7 @@ fieldset[disabled] .datepicker table tr td.active.highlighted.focus {
 .datepicker table tr td span.active.disabled:hover:hover {
   color: #ffffff;
   background-color: #009688;
-  border-color: #1704651;
+  border-color: #007d71;
 }
 
 .datepicker table tr td span.active:active,
@@ -11576,7 +11576,7 @@ fieldset[disabled] .datepicker table tr td.active.highlighted.focus {
 .open > .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
   color: #ffffff;
   background-color: #009688;
-  border-color: #1704651;
+  border-color: #007d71;
 }
 
 .datepicker table tr td span.active:active:hover,
@@ -11616,7 +11616,7 @@ fieldset[disabled] .datepicker table tr td.active.highlighted.focus {
 .open > .dropdown-toggle.datepicker table tr td span.active.disabled.focus,
 .open > .dropdown-toggle.datepicker table tr td span.active.disabled:hover.focus {
   color: #ffffff;
-  background-color: #1704651;
+  background-color: #007d71;
   border-color: #193c5a;
 }
 
@@ -14922,7 +14922,7 @@ be a descendant of the grid when it is being dragged.
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #170465;
+  background-color: #009688;
   z-index: 1030;
   padding-right: 15px;
 }
@@ -14959,7 +14959,7 @@ be a descendant of the grid when it is being dragged.
             flex: 0 0 auto;
     display: block;
     width: 230px;
-    background-color: #170465;
+    background-color: #007d71;
   }
 }
 

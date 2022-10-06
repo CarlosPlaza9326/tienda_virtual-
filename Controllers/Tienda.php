@@ -30,9 +30,12 @@
 			$data['pagina'] = $pagina;
 			$data['total_paginas'] = $total_paginas;
 			$data['categorias'] = $this->getCategorias();
+
+
 			if(sizeof($_SESSION)>0){
 				$data['lastOrders'] = $this->model->lastOrders();
 			}
+			
 			$this->views->getView($this,"tienda",$data);
 		}
 

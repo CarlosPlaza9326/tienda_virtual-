@@ -1,7 +1,7 @@
 <?php 
 headerTienda($data);
 ?>
- <br><br><br>
+ <br><br>
 <hr>
 	<!-- breadcrumb -->
 	<div class="container">
@@ -144,9 +144,11 @@ if(isset($_SESSION['arrCarrito']) and count($_SESSION['arrCarrito']) > 0){
 <div class="container">
 	<p>No hay producto en el carrito <a href="<?= base_url() ?>/tienda"> Ver productos</a></p>
 </div>
+
 <br>
 <?php 
 	}
+	echo $data['page']['contenido'];
 	footerTienda($data);
  ?>
 	

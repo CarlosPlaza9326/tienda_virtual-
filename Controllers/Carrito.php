@@ -13,9 +13,15 @@
 
 		public function carrito()
 		{
+
+			$pageContent = getPageRout('carrito');
 			$data['page_tag'] = NOMBRE_EMPESA.' - Carrito';
 			$data['page_title'] = 'Carrito de compras';
 			$data['page_name'] = "carrito";
+			$data['page_name'] = $pageContent['titulo'];
+			$data['page'] = $pageContent;
+
+
 			$this->views->getView($this,"carrito",$data); 
 		}
 		public function procesarpago()

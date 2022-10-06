@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 return false;
             }
 
-
             divLoading.style.display = "flex";
             
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
@@ -59,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         }
                         $('#modalformBanner').modal("hide");
                         formBanner.reset();
-                        swal("Usuarios", objData.msg ,"success");
+                        swal("Banners", objData.msg ,"success");
                     }else{
                         swal("Error", objData.msg , "error");
                     }

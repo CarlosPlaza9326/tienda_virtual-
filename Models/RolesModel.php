@@ -19,7 +19,7 @@
 				$whereAdmin = " and idrol != 1 ";
 			}
 			//EXTRAE ROLES
-			$sql = "SELECT * FROM rol WHERE status != 0 and idrol <> 3".$whereAdmin;
+			$sql = "SELECT * FROM rol WHERE status != 0".$whereAdmin;
 			$request = $this->select_all($sql);
 			return $request;
 		}

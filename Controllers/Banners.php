@@ -53,45 +53,32 @@ class Banners extends Controllers{
 	}
 
 
-	public function setCliente(){
-		error_reporting(0);
-		if($_POST){
+	public function setBanner(){
 
-	
-				$request_user = "";
-				if($idUsuario == 0)
-				{
-					$option = 1;
-					$strPassword =  empty($_POST['txtPassword']) ? passGenerator() : $_POST['txtPassword'];
-					$strPasswordEncript = hash("SHA256",$strPassword);
-					if($_SESSION['permisosMod']['w']){
-						$request_user = $this->model->insertCliente($strIdentificacion,
-																			$strNombre, 
-																			$strApellido, 
-																			$intTelefono, 
-																			$strEmail,
-																			$strPasswordEncript,
-																			$intTipoId );
-					}
-				}else{
-					$option = 2;
-					$strPassword =  empty($_POST['txtPassword']) ? "" : hash("SHA256",$_POST['txtPassword']);
-					if($_SESSION['permisosMod']['u']){
-						$request_user = $this->model->updateCliente($idUsuario,
-																	$strIdentificacion, 
-																	$strNombre,
-																	$strApellido, 
-																	$intTelefono, 
-																	$strEmail,
-																	$strPassword);
-					}
-				}
-
-
+		
+		if($_FILES){
 			
+			$fileTempName = $_FILES['file']['tmp_name'];
+			$idUsuario = $_SESSION['idUser'];
+
+			if($archivo=$_FILES['file']["name"]){
+				 if(file_exists('Assets/images/'.$idUsuario.'.png')){
+					unlink('Assets/images/'.$idUsuario.'.png'); 
+				  } 
+				$fileNemeNew = $_FILES['file']["name"];
+				$fileDestination = 'Assets/images/'.$idUsuario.'.png';
+	
+			
+				move_uploaded_file($fileTempName, $fileDestination);
+
+				$ruta=$_SERVER["HTTP_HOST"].'/banner/imagen/'.$fileNemeNew;
+
+				$request_image = $this->model->insertBanner($idUsuario,$ruta);
+				$arrResponse = array('status' => true, 'msg' => 'Datos Actualizados correctamente.');
+			}
 			echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
-		}
-		die();
+		}die();
+		
 	}
 
 

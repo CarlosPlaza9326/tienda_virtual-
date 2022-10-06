@@ -5,8 +5,12 @@
 		use TCategoria, TProducto;
 		public function __construct()
 		{
-			session_start();
 			parent::__construct();
+			session_start();
+			
+
+			
+			
 		}
 
 		public function home()

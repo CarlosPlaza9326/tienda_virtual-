@@ -1,18 +1,12 @@
 <?php 
 
-	class Login extends Controllers{
+	class Logintienda extends Controllers{
 		public function __construct()
 		{
 			session_start();
-			
 			if(isset($_SESSION['login']))
 			{
-				if($_SESSION['userData']['idrol']!= RCLIENTES){
-					header('Location: '.base_url().'/dashboard');
-				}else{
-					header('Location: '.base_url().'/');
-				}
-				
+				header('Location: '.base_url().'/dashboard');
 				die();
 			}
 			parent::__construct();
@@ -23,7 +17,7 @@
 			$data['page_tag'] = "Login - Tienda Virtual";
 			$data['page_title'] = "Tienda Virtual";
 			$data['page_name'] = "login";
-			$data['page_functions_js'] = "functions_login.js";
+			$data['page_functions_js'] = "functions_logintienda.js";
 			$this->views->getView($this,"login",$data);
 		}
 
@@ -128,7 +122,6 @@
 		}
 
 		public function setPassword(){
-
 			if(empty($_POST['idUsuario']) || empty($_POST['txtEmail']) || empty($_POST['txtToken']) || empty($_POST['txtPassword']) || empty($_POST['txtPasswordConfirm'])){
 
 					$arrResponse = array('status' => false, 

@@ -2,7 +2,7 @@
 headerTienda($data);
 $arrProductos = $data['productos'];
  ?>
-<br><br><br>
+<br><br>
 <hr>
 	<!-- Product -->
 	<div class="bg0 m-t-23 p-b-140">
