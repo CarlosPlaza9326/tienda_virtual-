@@ -50,7 +50,7 @@
           <tbody>
             <tr>
               <td>IMAGEN</td>
-              <td id="celIdentificacion">654654654</td>
+              <td id="celImagen"></td>
             </tr>
 
           </tbody>

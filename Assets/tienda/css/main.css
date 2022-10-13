@@ -114,7 +114,9 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .slick-slide {outline: none !important;}
 
 
-
+.section-slide{
+  margin-top:85px;
+}
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -738,6 +740,11 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
     display: flex;
   }
   .container-menu-desktop {display: none;}
+
+
+  .section-slide{
+    margin-top:0px;
+  }
 }
 
 /*==================================================================

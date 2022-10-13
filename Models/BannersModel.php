@@ -18,6 +18,15 @@ class BannersModel extends Mysql
 		return $request;
 	}
 
+	public function selectBannersun($codigo)
+	{
+		$sql = "SELECT id, url_image
+				FROM banner 
+				WHERE  id = ".$codigo." AND deleted_at is null ORDER BY id DESC "; 
+		$request = $this->select_all($sql);
+		return $request;
+	}
+
 	public function insertBanner(string $nombre, string $ruta){
 
 		$this->strNombre = $nombre;
@@ -44,6 +53,15 @@ class BannersModel extends Mysql
 			$return = "exist";
 		}
         return $return;
+	}
+
+	public function deleteBanner($codigo)
+	{
+		$this->intIdBanner = $codigo;
+		$sql = "UPDATE banner SET deleted_at = CURDATE() WHERE id = ".$this->intIdBanner."";
+		$arrData = array(0);
+		$request = $this->update($sql,$arrData);
+		return $request;
 	}
 
 }

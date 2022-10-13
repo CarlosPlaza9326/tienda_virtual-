@@ -73,23 +73,19 @@ document.addEventListener('DOMContentLoaded', function(){
 }, false);
 
 
-function fntViewInfo(idpersona){
+function fntViewInfo(idbanner){
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url+'/Clientes/getCliente/'+idpersona;
+    let ajaxUrl = base_url+'/Banners/getBannersun/'+idbanner;
     request.open("GET",ajaxUrl,true);
     request.send();
     request.onreadystatechange = function(){
         if(request.readyState == 4 && request.status == 200){
             let objData = JSON.parse(request.responseText);
-            if(objData.status)
+           
+            if(Object.keys(objData).length > 0)
             {
-                document.querySelector("#celIdentificacion").innerHTML = objData.data.identificacion;
-                document.querySelector("#celNombre").innerHTML = objData.data.nombres;
-                document.querySelector("#celApellido").innerHTML = objData.data.apellidos;
-                document.querySelector("#celTelefono").innerHTML = objData.data.telefono;
-                document.querySelector("#celEmail").innerHTML = objData.data.email_user;
-                document.querySelector("#celFechaRegistro").innerHTML = objData.data.fechaRegistro; 
-                $('#modalViewCliente').modal('show');
+                document.querySelector("#celImagen").innerHTML = "<img class='img-fluid' src='"+objData.url_image+"'>";
+                $('#modalViewBanner').modal('show');
             }else{
                 swal("Error", objData.msg , "error");
             }
@@ -97,31 +93,9 @@ function fntViewInfo(idpersona){
     }
 }
 
-function fntEditInfo(element, idpersona){
-    rowTable = element.parentNode.parentNode.parentNode;
-    document.querySelector('#titleModal').innerHTML ="Actualizar Cliente";
-    document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
-    document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
-    document.querySelector('#btnText').innerHTML ="Actualizar";
-    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url+'/Clientes/getCliente/'+idpersona;
-    request.open("GET",ajaxUrl,true);
-    request.send();
-    request.onreadystatechange = function(){
-
-        if(request.readyState == 4 && request.status == 200){
-            let objData = JSON.parse(request.responseText);
-            if(objData.status)
-            {
-
-            }
-        }
-        $('#modalFormBanner').modal('show');
-    }
-}
 
 
-function fntDelInfo(idpersona){
+function fntDelInfo(idbanner ){
     swal({
         title: "Eliminar Banner",
         text: "¿Realmente quiere eliminar al cliente?",
@@ -136,8 +110,8 @@ function fntDelInfo(idpersona){
         if (isConfirm) 
         {
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url+'/Clientes/delCliente';
-            let strData = "idUsuario="+idpersona;
+            let ajaxUrl = base_url+'/Banners/delBanners';
+            let strData = "idBanner="+idbanner;
             request.open("POST",ajaxUrl,true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(strData);

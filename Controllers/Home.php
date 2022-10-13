@@ -1,8 +1,9 @@
 <?php 
 	require_once("Models/TCategoria.php");
 	require_once("Models/TProducto.php");
+	require_once("Models/TBanner.php");
 	class Home extends Controllers{
-		use TCategoria, TProducto;
+		use TCategoria, TBanner, TProducto;
 		public function __construct()
 		{
 			parent::__construct();
@@ -24,7 +25,7 @@
 			$data['page_title'] = NOMBRE_EMPESA;
 			$data['page_name'] = "tienda_virtual";
 			$data['page'] = $pageContent;
-			$data['slider'] = $this->getCategoriasT();
+			$data['slider'] = $this->getSlider();
 			$data['banner'] = $this->getCategoriasT();
 			$data['productos'] = $this->getProductosT();
 

@@ -20,6 +20,9 @@
 			$data['page_name'] = "carrito";
 			$data['page_name'] = $pageContent['titulo'];
 			$data['page'] = $pageContent;
+			if(!empty($_SESSION['userData'])){
+				$data['lastOrders'] = $this->model->lastOrders();
+			}
 
 
 			$this->views->getView($this,"carrito",$data); 
@@ -35,6 +38,9 @@
 			$data['page_title'] = 'Procesar Pago';
 			$data['page_name'] = "procesarpago";
 			$data['tiposPago'] = $this->getTiposPagoT();
+			if(!empty($_SESSION['userData'])){
+				$data['lastOrders'] = $this->model->lastOrders();
+			}
 			$this->views->getView($this,"procesarpago",$data); 
 		}
 

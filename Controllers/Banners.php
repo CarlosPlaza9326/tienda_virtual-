@@ -39,20 +39,25 @@ class Banners extends Controllers{
 				if($_SESSION['permisosMod']['r']){
 					$btnView = '<button class="btn btn-info btn-sm" onClick="fntViewInfo('.$arrData[$i]['id'].')" title="Ver cliente"><i class="far fa-eye"></i></button>';
 				}
-				if($_SESSION['permisosMod']['u']){
-					$btnEdit = '<button class="btn btn-primary  btn-sm" onClick="fntEditInfo(this,'.$arrData[$i]['id'].')" title="Editar cliente"><i class="fas fa-pencil-alt"></i></button>';
-				}
 				if($_SESSION['permisosMod']['d']){	
 					$btnDelete = '<button class="btn btn-danger btn-sm" onClick="fntDelInfo('.$arrData[$i]['id'].')" title="Eliminar cliente"><i class="far fa-trash-alt"></i></button>';
 				}
 				$arrData[$i]['url_image'] = '<img src="'.$arrData[$i]['url_image'].'" width="150" height="50">';
-				$arrData[$i]['options'] = '<div class="text-center">'.$btnView.' '.$btnEdit.' '.$btnDelete.'</div>';
+				$arrData[$i]['options'] = '<div class="text-center">'.$btnView.' '.$btnDelete.'</div>';
 			}
 			echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
 		}
 		die();
 	}
 
+	public function getBannersun($codigo){
+		if($_SESSION['permisosMod']['r']){
+			$arrData_uno = $this->model->selectBannersun($codigo);
+			
+			echo json_encode($arrData_uno[0],JSON_UNESCAPED_UNICODE);
+		}
+		die();	
+	}
 
 	public function setBanners(){
 
@@ -71,7 +76,7 @@ class Banners extends Controllers{
 
 				move_uploaded_file($fileTempName, $fileDestination);
 
-				$ruta=$_SERVER["HTTP_HOST"].'/tienda_virtual/Assets/images/'.$fileNemeNew;
+				$ruta='Assets/images/'.$fileNemeNew;
 
 				$request_image = $this->model->insertBanner($fileNemeNew,$ruta);
 
@@ -80,6 +85,24 @@ class Banners extends Controllers{
 			echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
 		}die();
 		
+	}
+
+	public function delBanners()
+	{
+		if($_POST){
+			if($_SESSION['permisosMod']['d']){
+				$intIdbanner = intval($_POST['idBanner']);
+				$requestDelete = $this->model->deleteBanner($intIdbanner);
+				if($requestDelete)
+				{
+					$arrResponse = array('status' => true, 'msg' => 'Se ha eliminado el Banner');
+				}else{
+					$arrResponse = array('status' => false, 'msg' => 'Error al eliminar el Banner.');
+				}
+				echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+			}
+		}
+		die();
 	}
 
 
