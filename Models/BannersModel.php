@@ -13,40 +13,34 @@ class BannersModel extends Mysql
 	{
 		$sql = "SELECT id, url_image
 				FROM banner 
-				WHERE deleted_at is null "; 
+				WHERE deleted_at is null ORDER BY id DESC "; 
 		$request = $this->select_all($sql);
 		return $request;
 	}
 
-	public function insertBanner(string $identificacion, string $nombre, string $apellido, int $telefono, string $email, string $password, int $tipoid){
+	public function insertBanner(string $nombre, string $ruta){
 
-		$this->strIdentificacion = $identificacion;
 		$this->strNombre = $nombre;
-		$this->strApellido = $apellido;
-		$this->intTelefono = $telefono;
-		$this->strEmail = $email;
-		$this->strPassword = $password;
-		$this->intTipoId = $tipoid;
+		$this->strRuta = $ruta;
+
 
 		$return = 0;
-		$sql = "SELECT * FROM persona WHERE 
-				email_user = '{$this->strEmail}' or identificacion = '{$this->strIdentificacion}' ";
+		$sql = "SELECT * FROM banner WHERE 
+				nombre = '{$this->strNombre}' or url_image = '{$this->strRuta}' ";
 		$request = $this->select_all($sql);
 
 		if(empty($request))
 		{
-			$query_insert  = "INSERT INTO persona(identificacion,nombres,apellidos,telefono,email_user,password,rolid) 
-							  VALUES(?,?,?,?,?,?,?)";
-        	$arrData = array($this->strIdentificacion,
-    						$this->strNombre,
-    						$this->strApellido,
-    						$this->intTelefono,
-    						$this->strEmail,
-    						$this->strPassword,
-    						$this->intTipoId);
+			$query_insert  = "INSERT INTO banner(nombre,url_image) 
+							  VALUES(?,?)";
+        	$arrData = array($this->strNombre,
+    						$this->strRuta);
         	$request_insert = $this->insert($query_insert,$arrData);
-        	$return = $request_insert;
+        	$return = "Se guardo correctamente";
+
+			
 		}else{
+
 			$return = "exist";
 		}
         return $return;

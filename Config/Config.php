@@ -50,7 +50,7 @@
 	const EMAIL_SUSCRIPCION = "store.charvi2026@gmail.com";
 	const EMAIL_CONTACTO = "store.charvi2026@gmail.com";
 
-	const CAT_SLIDER = "1,2,3";
+	const CAT_SLIDER = "1,2,3,4,5,6,7";
 	const CAT_BANNER = "4,5,6";
 	const CAT_FOOTER = "1,2,3,4,5";
 

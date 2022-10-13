@@ -45,6 +45,7 @@ class Banners extends Controllers{
 				if($_SESSION['permisosMod']['d']){	
 					$btnDelete = '<button class="btn btn-danger btn-sm" onClick="fntDelInfo('.$arrData[$i]['id'].')" title="Eliminar cliente"><i class="far fa-trash-alt"></i></button>';
 				}
+				$arrData[$i]['url_image'] = '<img src="'.$arrData[$i]['url_image'].'" width="150" height="50">';
 				$arrData[$i]['options'] = '<div class="text-center">'.$btnView.' '.$btnEdit.' '.$btnDelete.'</div>';
 			}
 			echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
@@ -53,28 +54,28 @@ class Banners extends Controllers{
 	}
 
 
-	public function setBanner(){
+	public function setBanners(){
 
 		
 		if($_FILES){
 			
 			$fileTempName = $_FILES['file']['tmp_name'];
-			$idUsuario = $_SESSION['idUser'];
+			
 
 			if($archivo=$_FILES['file']["name"]){
-				 if(file_exists('Assets/images/'.$idUsuario.'.png')){
-					unlink('Assets/images/'.$idUsuario.'.png'); 
+				 if(file_exists('Assets/images/'.$_FILES['file']["name"])){
+					unlink('Assets/images/'.$_FILES['file']["name"]); 
 				  } 
 				$fileNemeNew = $_FILES['file']["name"];
-				$fileDestination = 'Assets/images/'.$idUsuario.'.png';
-	
-			
+				$fileDestination = 'Assets/images/'.$fileNemeNew;
+
 				move_uploaded_file($fileTempName, $fileDestination);
 
-				$ruta=$_SERVER["HTTP_HOST"].'/banner/imagen/'.$fileNemeNew;
+				$ruta=$_SERVER["HTTP_HOST"].'/tienda_virtual/Assets/images/'.$fileNemeNew;
 
-				$request_image = $this->model->insertBanner($idUsuario,$ruta);
-				$arrResponse = array('status' => true, 'msg' => 'Datos Actualizados correctamente.');
+				$request_image = $this->model->insertBanner($fileNemeNew,$ruta);
+
+				$arrResponse = array('status' => true, 'msg' => $request_image);
 			}
 			echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
 		}die();

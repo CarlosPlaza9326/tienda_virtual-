@@ -8,7 +8,11 @@
 			parent::__construct();
 			session_start();
 			
+			if(empty($_SESSION['userData'])){
+				
+			}elseif($_SESSION['userData']['idrol']!= RCLIENTES || $_SESSION['userData']['idrol']!= RADMINISTRADOR){
 
+			}
 			
 			
 		}
@@ -24,7 +28,7 @@
 			$data['banner'] = $this->getCategoriasT(CAT_BANNER);
 			$data['productos'] = $this->getProductosT();
 
-			if(sizeof($_SESSION)>0){
+			if(!empty($_SESSION['userData'])){
 				$data['lastOrders'] = $this->model->lastOrders();
 			}
 				

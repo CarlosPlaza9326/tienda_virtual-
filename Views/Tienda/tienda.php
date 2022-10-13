@@ -75,6 +75,9 @@ $arrProductos = $data['productos'];
 								<span class="stext-105 cl3">
 									<?= SMONEY.formatMoney($arrProductos[$p]['precio']); ?>
 								</span>
+								<span class="stext-105 cl3">
+									<b>STOCK:</b> <?= ($arrProductos[$p]['stock']); ?>
+								</span>
 							</div>
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#"

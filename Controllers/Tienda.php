@@ -32,7 +32,7 @@
 			$data['categorias'] = $this->getCategorias();
 
 
-			if(sizeof($_SESSION)>0){
+			if(!empty($_SESSION['userData'])){
 				$data['lastOrders'] = $this->model->lastOrders();
 			}
 			

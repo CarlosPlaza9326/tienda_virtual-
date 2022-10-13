@@ -116,6 +116,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= media() ?>/tienda/css/main.css">
 	<link rel="stylesheet" type="text/css" href="<?= media(); ?>/css/style.css">
 	<script src="<?= media() ?>/tienda/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="<?= media() ?>/js/functions_register.js"></script>
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -199,6 +200,9 @@
 							Salir
 						</a>
 						<?php }else{ ?>
+							<a href="#" class="flex-c-m trans-04 p-lr-25" onclick="openModalregister();">
+								Registrate
+							</a>
 							<div class="login-box" id="mydiv">
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Iniciar Sesión
@@ -338,6 +342,9 @@
 							Salir
 						</a>
 						<?php }else{ ?>
+							<a href="#" class="flex-c-m trans-04 p-lr-25">
+								Registrate
+							</a>
 							<div class="login-box" id="mydiv2" >
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Iniciar Sesión
@@ -432,6 +439,66 @@
 		</div>
 	</div>
 
+
+	<div class="modal fade" id="modalFormRegister" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" >
+    <div class="modal-content">
+      <div class="modal-header headerRegister">
+        <h5 class="modal-title" id="titleModal">Nuevo Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form id="formRegister2" name="formRegister2" class="form-horizontal">
+             
+			<div class="row">
+									<div class="col col-md-6 form-group">
+										<label for="txtNombre">Nombres</label>
+										<input type="text" class="form-control valid validText" id="txtNombreregister" name="txtNombre" required="">
+									</div>
+									<div class="col col-md-6 form-group">
+										<label for="txtApellido">Apellidos</label>
+										<input type="text" class="form-control valid validText" id="txtApellidoregister" name="txtApellido" required="">
+									</div>
+						 		</div>
+						 		<div class="row">
+									<div class="col col-md-6 form-group">
+										<label for="txtCedula">Identificación</label>
+										<input type="text" class="form-control valid validNumber" id="txtCedularegister" name="txtCedula" required="" onkeypress="return controlTag(event);">
+									</div>
+									
+									<div class="col col-md-6 form-group">
+										<label for="txtTelefono">Teléfono</label>
+										<input type="text" class="form-control valid validNumber" id="txtTelefonoregister" name="txtTelefono" required="" onkeypress="return controlTag(event);">
+									</div>
+
+						 		</div>
+								 <div class="row">
+								 	<div class="col col-md-6 form-group">
+										<label for="txtEmailCliente">Email</label>
+										<input type="email" class="form-control valid validEmail" id="txtEmailClienteregister" name="txtEmailCliente" required>
+									</div>
+									
+									<div class="col col-md-6 form-group">
+									<label for="txtEmailCliente">Password</label>
+										<input type="password" class="form-control valid validPassword" id="txtpswClienteregister" name="txtpswCliente" placeholder="Password" autocomplete="off" required>									
+									    <span class="fa fa-eye-slash icon"  onclick="mostrarPassword();" style="position: absolute;bottom: 3px;right: 20px; width: 24px;height: 24px;"></span>						
+									</div>
+
+						 		</div>
+              
+
+
+              <div class="tile-footer">
+                <button  class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i><span id="btnText">Guardar</span></button>&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-danger" type="button" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cerrar</button>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
 	<script>
 var bandera= false;
 			$('#txtEmail, #txtPassword').focusin(function() {
