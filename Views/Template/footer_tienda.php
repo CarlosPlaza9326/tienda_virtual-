@@ -122,6 +122,7 @@
 	<script src="<?= media() ?>/tienda/js/main.js"></script>
 	<script src="<?= media();?>/js/functions_admin.js"></script>
 	<script src="<?= media() ?>/js/functions_logintienda.js"></script>
+	<script src="<?= media() ?>/js/functions_register.js"></script>
 	<script src="<?= media() ?>/tienda/js/functions.js"></script>
 
 </body>

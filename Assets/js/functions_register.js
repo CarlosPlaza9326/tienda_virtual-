@@ -1,6 +1,5 @@
-let tableBanners; 
 let rowTable = "";
-let divLoading = document.querySelector("#divLoading");
+
 document.addEventListener('DOMContentLoaded', function(){
 
 	if(document.querySelector("#formRegister2")){
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         swal("Error", objData.msg , "error");
                     }
                 }
-                divLoading.style.display = "none";
+               
                 return false;
             }
         }
@@ -62,7 +61,6 @@ function openModalregister()
     document.querySelector('#btnText').innerHTML ="Guardar";
     document.querySelector('#titleModal').innerHTML = "Registrese";
     document.querySelector("#formRegister2").reset();
-    
     $('#modalFormRegister').modal('show');
 }
 

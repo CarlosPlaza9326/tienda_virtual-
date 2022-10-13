@@ -116,7 +116,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= media() ?>/tienda/css/main.css">
 	<link rel="stylesheet" type="text/css" href="<?= media(); ?>/css/style.css">
 	<script src="<?= media() ?>/tienda/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="<?= media() ?>/js/functions_register.js"></script>
+	
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
