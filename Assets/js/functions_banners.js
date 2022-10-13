@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
         "resonsieve":"true",
         "bDestroy": true,
         "iDisplayLength": 10,
-        "order":[[0,"desc"]]  
+        "order":[[0,"asc"]]  
     });
 
 	if(document.querySelector("#formBanner")){
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
             divLoading.style.display = "flex";
             
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url+'/Banner/setBanners'; 
+            let ajaxUrl = base_url+'/Banners/setBanners'; 
             let formData = new FormData(formBanner);
             request.open("POST",ajaxUrl,true);
             request.send(formData);
@@ -100,7 +100,6 @@ function fntViewInfo(idpersona){
 function fntEditInfo(element, idpersona){
     rowTable = element.parentNode.parentNode.parentNode;
     document.querySelector('#titleModal').innerHTML ="Actualizar Cliente";
-    document.getElementById("txtIdentificacion").readOnly = true;
     document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
     document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
     document.querySelector('#btnText').innerHTML ="Actualizar";
@@ -117,7 +116,7 @@ function fntEditInfo(element, idpersona){
 
             }
         }
-        $('#modalformBanner').modal('show');
+        $('#modalFormBanner').modal('show');
     }
 }
 

@@ -128,17 +128,7 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 						<div class="tab-content" id="myTabContent">
 						  <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="home-tab">
 						  	<br>
-						  	<form id="formLogin">
-							  <div class="form-group">
-							    <label for="txtEmail">Usuario</label>
-							    <input type="email" class="form-control" id="txtEmail" name="txtEmail">
-							  </div>
-							  <div class="form-group">
-							    <label for="txtPassword">Contraseña</label>
-							    <input type="password" class="form-control" id="txtPassword" name="txtPassword">
-							  </div>
-							  <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-							</form>
+						  	<h1>Por favor Inicia sesión</h1>
 
 						  </div>
 						  <div class="tab-pane fade" id="registro" role="tabpanel" aria-labelledby="profile-tab">

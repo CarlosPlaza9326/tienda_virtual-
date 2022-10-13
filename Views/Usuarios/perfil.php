@@ -12,6 +12,7 @@
                       <?php  $time = date("H:i:s");?>
                   <div class="col-md-12" id="imagePreview">
                     <img style='border-radius:0 !important; max-width:none' width='300' height='200' src="<?= media();?>/images/<?php echo $_SESSION['idUser']?>.png?time=<?php echo $time ?>">   
+                   
                   </div>
                   <form id="subirimagen">
                   <div class="col-md-12">
