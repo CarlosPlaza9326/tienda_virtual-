@@ -24,8 +24,8 @@
 			$data['page_title'] = NOMBRE_EMPESA;
 			$data['page_name'] = "tienda_virtual";
 			$data['page'] = $pageContent;
-			$data['slider'] = $this->getCategoriasT(CAT_SLIDER);
-			$data['banner'] = $this->getCategoriasT(CAT_BANNER);
+			$data['slider'] = $this->getCategoriasT();
+			$data['banner'] = $this->getCategoriasT();
 			$data['productos'] = $this->getProductosT();
 
 			if(!empty($_SESSION['userData'])){

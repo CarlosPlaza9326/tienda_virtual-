@@ -8,7 +8,7 @@
 	const DB_HOST = "localhost";
 	const DB_NAME = "tienda";
 	const DB_USER = "root";
-	const DB_PASSWORD = "";
+	const DB_PASSWORD = "1234";
 	const DB_CHARSET = "utf8";
 
 	//Para envío de correo
@@ -50,9 +50,6 @@
 	const EMAIL_SUSCRIPCION = "store.charvi2026@gmail.com";
 	const EMAIL_CONTACTO = "store.charvi2026@gmail.com";
 
-	const CAT_SLIDER = "1,2,3,4,5,6,7";
-	
-	const CAT_BANNER = "4,5,6";
 	const CAT_FOOTER = "1,2,3,4,5";
 
 	//Datos para Encriptar / Desencriptar

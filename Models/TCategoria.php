@@ -3,10 +3,10 @@ require_once("Libraries/Core/Mysql.php");
 trait TCategoria{
 	private $con;
 
-	public function getCategoriasT(string $categorias){
+	public function getCategoriasT(){
 		$this->con = new Mysql();
 		$sql = "SELECT idcategoria, nombre, descripcion, portada, ruta
-				 FROM categoria WHERE status != 0 AND idcategoria IN ($categorias)";
+				 FROM categoria WHERE status != 0 AND status !=2 ";
 		$request = $this->con->select_all($sql);
 		if(count($request) > 0){
 			for ($c=0; $c < count($request) ; $c++) { 
