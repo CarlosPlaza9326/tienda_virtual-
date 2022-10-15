@@ -31,6 +31,13 @@
                           <option value="2">Inactivo</option>
                         </select>
                     </div>  
+                    <div class="form-group">
+                        <label for="exampleSelect1">Visible <span class="required">*</span></label>
+                        <select class="form-control selectpicker" id="listVisible" name="listVisible" required="">
+                          <option value="0">No</option>
+                          <option value="1">Si</option>
+                        </select>
+                    </div>  
                 </div>
                 <div class="col-md-6">
                     <div class="photo">
@@ -88,6 +95,10 @@
             <tr>
               <td>Estado:</td>
               <td id="celEstado"></td>
+            </tr>
+            <tr>
+              <td>Visible:</td>
+              <td id="celVisible"></td>
             </tr>
             <tr>
               <td>Foto:</td>

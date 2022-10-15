@@ -101,7 +101,8 @@ document.addEventListener('DOMContentLoaded', function(){
         e.preventDefault();
         let strNombre = document.querySelector('#txtNombre').value;
         let strDescripcion = document.querySelector('#txtDescripcion').value;
-        let intStatus = document.querySelector('#listStatus').value;        
+        let intStatus = document.querySelector('#listStatus').value; 
+        let intVisible= document.querySelector('#listVisible').value;        
         if(strNombre == '' || strDescripcion == '' || intStatus == '')
         {
             swal("Atención", "Todos los campos son obligatorios." , "error");
@@ -159,10 +160,15 @@ function fntViewInfo(idcategoria){
                 let estado = objData.data.status == 1 ? 
                 '<span class="badge badge-success">Activo</span>' : 
                 '<span class="badge badge-danger">Inactivo</span>';
+
+                let visible = objData.data.banner == 0 ? 
+                '<span class="badge badge-danger">No</span>' : 
+                '<span class="badge badge-success">Si</span>';
                 document.querySelector("#celId").innerHTML = objData.data.idcategoria;
                 document.querySelector("#celNombre").innerHTML = objData.data.nombre;
                 document.querySelector("#celDescripcion").innerHTML = objData.data.descripcion;
                 document.querySelector("#celEstado").innerHTML = estado;
+                document.querySelector("#celVisible").innerHTML = visible;
                 document.querySelector("#imgCategoria").innerHTML = '<img src="'+objData.data.url_portada+'"></img>';
                 $('#modalViewCategoria').modal('show');
             }else{
@@ -198,7 +204,14 @@ function fntEditInfo(element,idcategoria){
                 }else{
                     document.querySelector("#listStatus").value = 2;
                 }
-                $('#listStatus').selectpicker('render');
+
+                if(objData.data.banner == 1){
+                    document.querySelector("#listVisible").value = 1;
+                }else{
+                    document.querySelector("#listVisible").value = 0;
+                }
+
+                $('#listStatus, #listVisible').selectpicker('render');
 
                 if(document.querySelector('#img')){
                     document.querySelector('#img').src = objData.data.url_portada;

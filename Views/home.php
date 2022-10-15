@@ -34,6 +34,8 @@
 				<?php 
 				for ($j=0; $j < count($arrBanner); $j++) {
 					$ruta = $arrBanner[$j]['ruta']; 
+
+					if(strcmp($arrBanner[$j]['banner'],1)==0){
 				 ?>
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
@@ -58,6 +60,7 @@
 					</div>
 				</div>
 				<?php 
+					}
 				}
 				 ?>
 			</div>

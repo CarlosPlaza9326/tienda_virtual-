@@ -36,6 +36,8 @@
 					$strCategoria =  strClean($_POST['txtNombre']);
 					$strDescipcion = strClean($_POST['txtDescripcion']);
 					$intStatus = intval($_POST['listStatus']);
+					$intVisible = intval($_POST['listVisible']);
+					
 
 					$ruta = strtolower(clear_cadena($strCategoria));
 					$ruta = str_replace(" ","-",$ruta);
@@ -54,7 +56,7 @@
 					{
 						//Crear
 						if($_SESSION['permisosMod']['w']){
-							$request_cateria = $this->model->inserCategoria($strCategoria, $strDescipcion,$imgPortada,$ruta,$intStatus);
+							$request_cateria = $this->model->inserCategoria($strCategoria, $strDescipcion,$imgPortada,$ruta,$intStatus,$intVisible);
 							$option = 1;
 						}
 					}else{
@@ -65,7 +67,7 @@
 									$imgPortada = $_POST['foto_actual'];
 								}
 							}
-							$request_cateria = $this->model->updateCategoria($intIdcategoria,$strCategoria, $strDescipcion,$imgPortada,$ruta,$intStatus);
+							$request_cateria = $this->model->updateCategoria($intIdcategoria,$strCategoria, $strDescipcion,$imgPortada,$ruta,$intStatus,$intVisible);
 							$option = 2;
 						}
 					}

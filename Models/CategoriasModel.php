@@ -14,7 +14,7 @@
 			parent::__construct();
 		}
 
-		public function inserCategoria(string $nombre, string $descripcion, string $portada, string $ruta, int $status){
+		public function inserCategoria(string $nombre, string $descripcion, string $portada, string $ruta, int $status, int $visible){
 
 			$return = 0;
 			$this->strCategoria = $nombre;
@@ -22,18 +22,20 @@
 			$this->strPortada = $portada;
 			$this->strRuta = $ruta;
 			$this->intStatus = $status;
+			$this->intVisible = $visible;
 
 			$sql = "SELECT * FROM categoria WHERE nombre = '{$this->strCategoria}' ";
 			$request = $this->select_all($sql);
 
 			if(empty($request))
 			{
-				$query_insert  = "INSERT INTO categoria(nombre,descripcion,portada,ruta,status) VALUES(?,?,?,?,?)";
+				$query_insert  = "INSERT INTO categoria(nombre,descripcion,portada,ruta,status,banner) VALUES(?,?,?,?,?,?)";
 	        	$arrData = array($this->strCategoria, 
 								 $this->strDescripcion, 
 								 $this->strPortada,
 								 $this->strRuta, 
-								 $this->intStatus);
+								 $this->intStatus,
+								 $this->intVisible);
 	        	$request_insert = $this->insert($query_insert,$arrData);
 	        	$return = $request_insert;
 			}else{
@@ -58,25 +60,27 @@
 			return $request;
 		}
 
-		public function updateCategoria(int $idcategoria, string $categoria, string $descripcion, string $portada, string $ruta, int $status){
+		public function updateCategoria(int $idcategoria, string $categoria, string $descripcion, string $portada, string $ruta, int $status, int $visible){
 			$this->intIdcategoria = $idcategoria;
 			$this->strCategoria = $categoria;
 			$this->strDescripcion = $descripcion;
 			$this->strPortada = $portada;
 			$this->strRuta = $ruta;
 			$this->intStatus = $status;
+			$this->intVisible = $visible;
 
 			$sql = "SELECT * FROM categoria WHERE nombre = '{$this->strCategoria}' AND idcategoria != $this->intIdcategoria";
 			$request = $this->select_all($sql);
 
 			if(empty($request))
 			{
-				$sql = "UPDATE categoria SET nombre = ?, descripcion = ?, portada = ?, ruta = ?, status = ? WHERE idcategoria = $this->intIdcategoria ";
+				$sql = "UPDATE categoria SET nombre = ?, descripcion = ?, portada = ?, ruta = ?, status = ?, banner = ? WHERE idcategoria = $this->intIdcategoria ";
 				$arrData = array($this->strCategoria, 
 								 $this->strDescripcion, 
 								 $this->strPortada,
 								 $this->strRuta, 
-								 $this->intStatus);
+								 $this->intStatus,
+								 $this->intVisible);
 				$request = $this->update($sql,$arrData);
 			}else{
 				$request = "exist";
