@@ -20,8 +20,8 @@
 
 		public function login()
 		{
-			$data['page_tag'] = "Login - Tienda Virtual";
-			$data['page_title'] = "Tienda Virtual";
+			$data['page_tag'] = "Login - Tienda CharviStore";
+			$data['page_title'] = "Admin CharviStore";
 			$data['page_name'] = "login";
 			$data['page_functions_js'] = "functions_login.js";
 			$this->views->getView($this,"login",$data);

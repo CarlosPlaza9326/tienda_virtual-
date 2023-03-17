@@ -94,7 +94,26 @@ $idpagina = $data['page']['idpost'];
 						<p class="stext-115 cl1 size-213 p-t-18">
 							<a class="" href="mailto:<?= EMAIL_EMPRESA ?>"><?= EMAIL_EMPRESA ?>
 						</p>
+
 					</div>
+					<div class="flex-w flex-m p-l-100 p-t-40 respon7">
+							<div class="flex-m bor9 p-r-10 m-r-11">
+								Redes Sociales:
+							</div>
+
+							<a href="https://www.facebook.com/CharViStore.Ec <?= FACEBOOK ?>" target="_blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+								
+								<i class="fa fa-facebook"></i>
+							</a>
+
+							<a href="https://www.instagram.com/charvi_store.ec/?hl=es  <?= INSTAGRAM ?> " target="_blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Instagram">
+								<i class="fa fa-instagram"></i>
+							</a>
+
+							<a href="https://wa.me/<?= WHATSAPP ?>" target="_blanck" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="WhatsApp">
+								<i class="fab fa-whatsapp" ></i>
+							</a>
+						</div>
 				</div>
 			</div>
 		</div>

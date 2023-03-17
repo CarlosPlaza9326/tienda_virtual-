@@ -69,7 +69,7 @@ $urlShared = base_url()."/tienda/producto/".$arrProducto['idproducto']."/".$arrP
 						</span>
 							</br>
 						<span class="mtext-106 cl2">
-							STOCK: <?= ($arrProducto['stock']); ?>
+							Stock Disponible : <?= ($arrProducto['stock']); ?>
 						</span>
 						<!-- <p class="stext-102 cl3 p-t-23"></p> -->
 						<?= $arrProducto['descripcion']; ?>
@@ -98,21 +98,22 @@ $urlShared = base_url()."/tienda/producto/".$arrProducto['idproducto']."/".$arrP
 						<!--  -->
 						<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 							<div class="flex-m bor9 p-r-10 m-r-11">
-								Compartir en:
+								Redes Sociales:
 							</div>
 
-							<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook"
-								onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?= $urlShared; ?> &t=<?= $arrProducto['nombre'] ?>','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');"
-								>
+						
+
+							<a href="https://www.facebook.com/CharViStore.Ec <?= FACEBOOK ?>" target="_blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+								
 								<i class="fa fa-facebook"></i>
 							</a>
 
-							<a href="https://twitter.com/intent/tweet?text=<?= $arrProducto['nombre'] ?>&url=<?= $urlShared; ?>&hashtags=<?= SHAREDHASH; ?>" target="_blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-								<i class="fa fa-twitter"></i>
+							<a href="https://www.instagram.com/charvi_store.ec/?hl=es  <?= INSTAGRAM ?> " target="_blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Instagram">
+								<i class="fa fa-instagram"></i>
 							</a>
 
-							<a href="https://api.whatsapp.com/send?text=<?= $arrProducto['nombre'].' '.$urlShared ?>" target="_blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="WhatsApp">
-								<i class="fab fa-whatsapp" aria-hidden="true"></i>
+							<a href="https://wa.me/<?= WHATSAPP ?>" target="_blanck" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="WhatsApp">
+								<i class="fab fa-whatsapp" ></i>
 							</a>
 						</div>
 					</div>

@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-lg" >
     <div class="modal-content">
       <div class="modal-header headerRegister">
-        <h5 class="modal-title" id="titleModal">Nuevo Usuario</h5>
+        <h5 class="modal-title" id="titleModal"> Nuevo Empleado </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -41,7 +41,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="listRolid">Tipo usuario</label>
+                    <label for="listRolid">Rol empleado </label>
                     <select class="form-control" data-live-search="true" id="listRolid" name="listRolid" required >
                     </select>
                 </div>
@@ -74,7 +74,7 @@
   <div class="modal-dialog" >
     <div class="modal-content">
       <div class="modal-header header-primary">
-        <h5 class="modal-title" id="titleModal">Datos del usuario</h5>
+        <h5 class="modal-title" id="titleModal">Datos del empleado</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

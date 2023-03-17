@@ -250,7 +250,7 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url(); ?>/tienda">Tienda</a>
+								<a href="<?= base_url(); ?>/tienda">Productos</a>
 							</li>
 
 							<li>

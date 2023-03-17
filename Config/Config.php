@@ -8,7 +8,7 @@
 	const DB_HOST = "localhost";
 	const DB_NAME = "tienda";
 	const DB_USER = "root";
-	const DB_PASSWORD = "1234";
+	const DB_PASSWORD = "";
 	const DB_CHARSET = "utf8";
 
 	//Para envío de correo
@@ -25,12 +25,12 @@
 	//Api PayPal
 	//SANDBOX PAYPAL
 	const URLPAYPAL = "https://api-m.sandbox.paypal.com";
-	const IDCLIENTE = "";
-	const SECRET = "";
+	const IDCLIENTE = "ATOB7N-uv8leBeKhThp-UDTWHare8WDpIQUbRtAV03ASuFBIL60AiXeF6l01-kAGlCO7RCqWr2GgCvNv";
+	const SECRET = "EMQHEM88lhLqg5pIVR079eWsWu64bLPnb2ZG7iv4f--h3DwBu75IXGBJWne32yCmMBz41-cMjAJvEGJ5";
 	//LIVE PAYPAL
 	//const URLPAYPAL = "https://api-m.paypal.com";
-	//const IDCLIENTE = "";
-	//const SECRET = "";
+	//const IDCLIENTE = "AelXXf7zyeQPVVomhDMQkCswAG9Qnn8qgIM8gI4mI5ol9SX52Ck47CnwGQcTtmhxiFZ7zVe2uHQdmnrZ";
+	//const SECRET = "EDNT6YBg8Dsx9yTQOEjIOJ3OqSUv8F9GJ4XPFOMqkWwXy99W1MaEnXuDxjhinRSXFZGwxYd60Zxll8JC";
 
 	//Datos envio de correo
 	const NOMBRE_REMITENTE = "Tienda Virtual";
@@ -57,7 +57,7 @@
 	const METHODENCRIPT = "AES-128-ECB";
 
 	//Envío
-	const COSTOENVIO = 5;
+	const COSTOENVIO = 0;
 
 	//Módulos
 	const MDASHBOARD = 1;
@@ -95,8 +95,8 @@
 	const PROBUSCAR = 4;
 
 	//REDES SOCIALES
-	const FACEBOOK = "https://www.facebook.com";
-	const INSTAGRAM = "https://www.instagram.com";
+	const FACEBOOK = "https://www.facebook.com/CharViStore.Ec";
+	const INSTAGRAM = "https://www.instagram.com/charvi_store.ec/?hl=es";
 	
 
  ?>
