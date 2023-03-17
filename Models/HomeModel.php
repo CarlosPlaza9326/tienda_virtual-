@@ -9,9 +9,7 @@
 			//$this->objCategoria = new CategoriasModel();
 		}
 
-		public function getCategorias(){
-			//return $this->objCategoria->selectCategorias();
-		}	
+
 		public function lastOrders(){
 			$rolid = $_SESSION['userData']['idrol'];
 			$idUser = $_SESSION['userData']['idpersona'];
